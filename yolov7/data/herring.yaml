@@ -1,12 +1,12 @@
 # Fish 2022 dataset 
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: [./data/input/train/carp/images/,./data/input/train/skate/images/,./data/input/train/flounder/images/,./data/input/train/herring/images/,./data/input/train/dead scallop/images/,./data/input/train/roundfish/images/,./data/input/train/scallop/images/] # 118287 images
-val: [./data/input/val/carp/images/,./data/input/val/skate/images/,./data/input/val/flounder/images/,./data/input/val/herring/images/,./data/input/val/dead scallop/images/,./data/input/val/roundfish/images/,./data/input/val/scallop/images/] # 5000 images
+train: [./data/input/train/skate/,./data/input/train/flounder/,./data/input/train/herring/,./data/input/train/dead-scallop/,./data/input/train/roundfish/,./data/input/train/scallop/] # 118287 images
+val: [./data/input/val/skate/,./data/input/val/flounder/,./data/input/val/herring/,./data/input/val/dead-scallop/,./data/input/val/roundfish/,./data/input/val/scallop/] # 5000 images
 
-test: [./data/input/test/carp/images/,./data/input/test/skate/images/,./data/input/test/flounder/images/,./data/input/test/herring/images/,./data/input/test/dead scallop/images/,./data/input/test/roundfish/images/,./data/input/test/scallop/images/]  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+test: [./data/input/test/skate/,./data/input/test/flounder/,./data/input/test/herring/,./data/input/test/dead-scallop/,./data/input/test/roundfish/,./data/input/test/scallop/]  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # number of classes
-nc: 7
+nc: 6
 
 # class names
-names: [ 'scallop','herring','dead scallop','flounder','roundfish','skate','carp' ]
+names: [ 'scallop','herring','dead-scallop','flounder','roundfish','skate' ]
