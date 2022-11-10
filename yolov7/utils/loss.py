@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 from utils.general import bbox_iou, bbox_alpha_iou, box_iou, box_giou, box_diou, box_ciou, xywh2xyxy
 from utils.torch_utils import is_parallel
-
+device = torch.device('cuda:0')
 
 def smooth_BCE(eps=0.1):  # https://github.com/ultralytics/yolov3/issues/238#issuecomment-598028441
     # return positive, negative label smoothing BCE targets
@@ -701,7 +701,7 @@ class ComputeLossOTA:
                 continue
             p_obj = torch.cat(p_obj, dim=0)
             p_cls = torch.cat(p_cls, dim=0)
-            from_which_layer = torch.cat(from_which_layer, dim=0)
+            from_which_layer = torch.cat(from_which_layer, dim=0).to(device)
             all_b = torch.cat(all_b, dim=0)
             all_a = torch.cat(all_a, dim=0)
             all_gj = torch.cat(all_gj, dim=0)
@@ -756,7 +756,7 @@ class ComputeLossOTA:
             fg_mask_inboxes = matching_matrix.sum(0) > 0.0
             matched_gt_inds = matching_matrix[:, fg_mask_inboxes].argmax(0)
         
-            from_which_layer = from_which_layer[fg_mask_inboxes]
+            from_which_layer = from_which_layer[fg_mask_inboxes.to(device)].to(device)
             all_b = all_b[fg_mask_inboxes]
             all_a = all_a[fg_mask_inboxes]
             all_gj = all_gj[fg_mask_inboxes]
