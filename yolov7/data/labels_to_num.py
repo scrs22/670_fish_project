@@ -14,13 +14,6 @@ for fish in dic_fish:
         for file_path in glob.glob("*.txt"):
             file = Path(file_path)
             file.write_text(file.read_text().replace(fish_type, fish_idx))
-            file.write_text(file.read_text().replace(fish_type, fish_idx))
+            file.write_text(file.read_text().replace(fish_type.capitalize(), fish_idx))
 
-        os.chdir(direc)
-        for file_path in glob.glob("*.txt"):
-            file = Path(file_path)
-            txt=file.read_text()
-            l=txt.split()
-            l[1:]=['0.5','0.5','1','1']
-            txt=' '.join(l)
-            file.write_text(txt)
+        
