@@ -1,12 +1,15 @@
 # Fish 2022 dataset 
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: [./data/input/train/skate/,./data/input/train/flounder/,./data/input/train/herring/,./data/input/train/dead-scallop/,./data/input/train/roundfish/,./data/input/train/scallop/] # 118287 images
-val: [./data/input/val/skate/,./data/input/val/flounder/,./data/input/val/herring/,./data/input/val/dead-scallop/,./data/input/val/roundfish/,./data/input/val/scallop/] # 5000 images
-
-test: [./data/input/test/skate/,./data/input/test/flounder/,./data/input/test/herring/,./data/input/test/dead-scallop/,./data/input/test/roundfish/,./data/input/test/scallop/]  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+train: [./data/input/train/acanthopagrus,./data/input/train/epinephelus,./data/input/train/f2,./data/input/train/f3,./data/input/train/f6,./data/input/train/gerres,./data/input/train/lutjanus]
+#[./data/input/train/skate/,./data/input/train/flounder/,./data/input/train/herring/,./data/input/train/dead-scallop/,./data/input/train/roundfish/,./data/input/train/scallop/] # 118287 images
+val: [./data/input/val/acanthopagrus,./data/input/val/epinephelus,./data/input/val/f2,./data/input/val/f3,./data/input/val/f6,./data/input/val/gerres,./data/input/val/lutjanus]
+#[./data/input/val/skate/,./data/input/val/flounder/,./data/input/val/herring/,./data/input/val/dead-scallop/,./data/input/val/roundfish/,./data/input/val/scallop/] # 5000 images
+test: [./data/input/test/acanthopagrus,./data/input/test/epinephelus,./data/input/test/f2,./data/input/test/f3,./data/input/test/f6,./data/input/test/gerres,./data/input/test/lutjanus]
+#[./data/input/test/skate/,./data/input/test/flounder/,./data/input/test/herring/,./data/input/test/dead-scallop/,./data/input/test/roundfish/,./data/input/test/scallop/]  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # number of classes
-nc: 6
+nc: 7
 
 # class names
-names: [ 'scallop','herring','dead-scallop','flounder','roundfish','skate' ]
+names: ['acanthopagrus',  'epinephelus',  'f2'  ,'f3',  'f6' , 'gerres' , 'lutjanus']
+#[ 'scallop','herring','dead-scallop','flounder','roundfish','skate' ]
