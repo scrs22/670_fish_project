@@ -12,8 +12,8 @@ species=['acanthopagrus',  'epinephelus',  'f2'  ,'f3',  'f6' , 'gerres' , 'lutj
 for folder in folders:
     for specie in species:
 
-          path = f'/home/ubuntu/herring_670/670_fish_project/yolov7/data/input/{folder}/{specie}/images' # Source Folder
-          dstpath = f'/home/ubuntu/herring_670/670_fish_project/yolov7/data/input/{folder}/{specie}/images' # Destination Folder
+          path = f'/home/ubuntu/670_fish_project/yolov7/data/input/{folder}/{specie}/images' # Source Folder
+          dstpath = f'/home/ubuntu/670_fish_project/yolov7/data/input/{folder}/{specie}/images' # Destination Folder
           try:
               makedirs(dstpath)
           except:

@@ -9,8 +9,8 @@ for fish in dic_fish:
         d_type=dir_i
         fish_type=fish
         fish_idx=dic_fish[fish]
-        direc=f'/Users/schanumolu/Desktop/670/project/670_fish_project/yolov7/data/input/{d_type}/{fish_type}/labels'
-        im_direc=f'/Users/schanumolu/Desktop/670/project/670_fish_project/yolov7/data/input/{d_type}/{fish_type}/images'
+        direc=f'/home/ubuntu/670_fish_project/yolov7/data/input/{d_type}/{fish_type}/labels'
+        im_direc=f'/home/ubuntu/670_fish_project/yolov7/data/input/{d_type}/{fish_type}/images'
 
         os.chdir(direc)
         for file_path in glob.glob("*.txt"):
