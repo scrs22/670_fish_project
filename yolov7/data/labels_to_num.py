@@ -1,7 +1,8 @@
 from pathlib import Path
 import glob, os
-dic_fish={'acanthopagrus':'0' ,'epinephelus':'1' , 'f2':'2' , 'f3':'3' , 'f6':'4', 'gerres':'5' , 'lutjanus':'6'}
-#'scallop':'0','herring':'1','dead-scallop':'2','flounder':'3','roundfish':'4','skate':'5',
+dic_fish={'scallop':'0','herring':'1','dead-scallop':'2','flounder':'3','roundfish':'4','skate':'5'}
+# {'acanthopagrus':'0' ,'epinephelus':'1' , 'f2':'2' , 'f3':'3' , 'f6':'4', 'gerres':'5' , 'lutjanus':'6'}
+#'
 list_dirs=['train','test','val']
 
 for fish in dic_fish:
