@@ -15,9 +15,10 @@ for fish in dic_fish:
         os.chdir(direc)
         for file_path in glob.glob("*.txt"):
             file = Path(file_path)
+            file.write_text(file.read_text().replace('dead-scallop', dic_fish['dead-scallop']))
             file.write_text(file.read_text().replace('scallop', dic_fish['scallop']))
             file.write_text(file.read_text().replace('herring', dic_fish['herring']))
-            file.write_text(file.read_text().replace('dead-scallop', dic_fish['dead-scallop']))
+            
             file.write_text(file.read_text().replace('flounder', dic_fish['flounder']))
             file.write_text(file.read_text().replace('roundfish', dic_fish['roundfish']))
             file.write_text(file.read_text().replace('skate', dic_fish['skate']))
