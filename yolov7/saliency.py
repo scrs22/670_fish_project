@@ -53,10 +53,16 @@ def generate_saliency_map(image,
                              prob_thresh=prob_thresh)
         masked = mask_image(image, mask)
         out = inference_detector(model, masked)
-        pred = out[target_class_index]
-        score = max([iou(target_box, box) * score for *box, score in pred],
-                    default=0)
-        res += mask * score
+        preds=out.pred_instances
+        bboxes,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
+        temp=[]
+        for i, bbox in enumerate(bboxes):
+            if scores[i] < 0.2577:
+                break
+            box = tuple(np.round(bbox).astype(int).tolist())
+            temp.append(iou(target_box, box) * scores[i])
+        max_score = max(temp,default=0)
+        res += mask * max_score
     return res
 
 
@@ -94,7 +100,7 @@ plt.show()
 
 target_box = np.array([225, 313, 472, 806])
 saliency_map = generate_saliency_map(image,
-                                     target_class_index=0,
+                                     target_class_index=3,
                                      target_box=target_box,
                                      prob_thresh=0.5,
                                      grid_size=(16, 16),
