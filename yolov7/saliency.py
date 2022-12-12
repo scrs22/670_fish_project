@@ -80,8 +80,9 @@ image = cv2.resize(image,
 
 out = inference_detector(model, image)
 res = image.copy()
-print(out.pred_instances.labels)
-for i, pred in enumerate(out.numpy):
+preds=out.pred_instances
+bboxes,labels,scores=preds.bboxes.numpy(),preds.labels.numpy(),preds.scores.numpy()
+for i, pred in preds:
     for *box, score in pred:
         if score < 0.5:
             break
