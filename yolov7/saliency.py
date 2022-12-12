@@ -83,7 +83,7 @@ res = image.copy()
 preds=out.pred_instances
 bboxes,labels,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
 for i, bbox in enumerate(bboxes):
-    if scores[i] < 0.5:
+    if scores[i] < 0.1:
         break
     box = tuple(np.round(bbox).astype(int).tolist())
     print(i, labels[i], box, scores[i])
