@@ -4,7 +4,7 @@ from pylabel import importer
 path_to_annotations = "dataset_single_folder/labels"
 
 #Identify the path to get from the annotations to the images 
-path_to_images = "dataset_single_folder/images"
+path_to_images = "../images"
 
 #Import the dataset into the pylable schema 
 #Class names are defined here https://github.com/ultralytics/yolov5/blob/master/data/coco128.yaml
