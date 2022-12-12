@@ -54,7 +54,7 @@ def generate_saliency_map(image,
         masked = mask_image(image, mask)
         out = inference_detector(model, masked)
         preds=out.pred_instances
-        bboxes,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
+        bboxes,scores=preds.bboxes.cpu().data.numpy(),preds.scores.cpu().data.numpy()
         temp=[]
         for i, bbox in enumerate(bboxes):
             if scores[i] < 0.2577:
@@ -113,4 +113,5 @@ plt.figure(figsize=(7, 7))
 plt.imshow(image_with_bbox[:, :, ::-1])
 plt.imshow(saliency_map, cmap='jet', alpha=0.5)
 plt.axis('off')
+plt.save('saliency.png')
 plt.show()
