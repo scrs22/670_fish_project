@@ -83,8 +83,25 @@ res = image.copy()
 preds=out.pred_instances
 bboxes,labels,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
 for i, bbox in enumerate(bboxes):
-    if scores[i] < 0.1:
+    if scores[i] < 0.2577:
         break
     box = tuple(np.round(bbox).astype(int).tolist())
     print(i, labels[i], box, scores[i])
     cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
+
+target_box = np.array([225, 313, 472, 806])
+saliency_map = generate_saliency_map(image,
+                                     target_class_index=15,
+                                     target_box=target_box,
+                                     prob_thresh=0.5,
+                                     grid_size=(16, 16),
+                                     n_masks=1000)
+
+image_with_bbox = image.copy()
+cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
+              (0, 255, 0), 5)
+plt.figure(figsize=(7, 7))
+plt.imshow(image_with_bbox[:, :, ::-1])
+plt.imshow(saliency_map, cmap='jet', alpha=0.5)
+plt.axis('off')
+plt.show()
