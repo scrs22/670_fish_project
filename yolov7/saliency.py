@@ -81,11 +81,10 @@ image = cv2.resize(image,
 out = inference_detector(model, image)
 res = image.copy()
 preds=out.pred_instances
-bboxes,labels,scores=preds.bboxes.numpy(),preds.labels.numpy(),preds.scores.numpy()
-for i, pred in preds:
-    for *box, score in pred:
-        if score < 0.5:
-            break
-        box = tuple(np.round(box).astype(int).tolist())
-        print(i, label_names[i], box, score)
-        cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
+bboxes,labels,scores=preds.bboxes.cpu.numpy(),preds.labels.cpu.numpy(),preds.scores.cpu.numpy()
+for i, bbox in enumerate(bboxes):
+    if scores[i] < 0.5:
+        break
+    box = tuple(np.round(bbox).astype(int).tolist())
+    print(i, labels[i], box, scores[i])
+    cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
