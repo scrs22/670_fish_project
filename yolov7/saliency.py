@@ -88,10 +88,13 @@ for i, bbox in enumerate(bboxes):
     box = tuple(np.round(bbox).astype(int).tolist())
     print(i, labels[i], box, scores[i])
     cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
+plt.figure(figsize=(7, 7))
+plt.imshow(res[:, :, ::-1])
+plt.show()
 
 target_box = np.array([225, 313, 472, 806])
 saliency_map = generate_saliency_map(image,
-                                     target_class_index=15,
+                                     target_class_index=0,
                                      target_box=target_box,
                                      prob_thresh=0.5,
                                      grid_size=(16, 16),
