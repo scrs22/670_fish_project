@@ -1,0 +1,15 @@
+# Fish 2022 dataset 
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: [./data/input_nf/train/skate/,./data/input_nf/train_nf/flounder/,./data/input_nf/train/herring/,./data/input_nf/train/dead-scallop/,./data/input_nf/train/roundfish/,./data/input_nf/train/scallop/] # 118287 images
+#[./data/input_nf/train/acanthopagrus,./data/input_nf/train/epinephelus,./data/input_nf/train/f2,./data/input_nf/train/f3,./data/input_nf/train/f6,./data/input_nf/train/gerres,./data/input_nf/train/lutjanus]
+val: [./data/input_nf/val/skate/,./data/input_nf/val/flounder/,./data/input_nf/val/herring/,./data/input_nf/val/dead-scallop/,./data/input_nf/val/roundfish/,./data/input_nf/val/scallop/] # 5000 images
+#[./data/input_nf/val/acanthopagrus,./data/input_nf/val/epinephelus,./data/input_nf/val/f2,./data/input_nf/val/f3,./data/input_nf/val/f6,./data/input_nf/val/gerres,./data/input_nf/val/lutjanus]
+test: [./data/input_nf/test/skate/,./data/input_nf/test/flounder/,./data/input_nf/test/herring/,./data/input_nf/test/dead-scallop/,./data/input_nf/test/roundfish/,./data/input_nf/test/scallop/]  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+#[./data/input_nf/test/acanthopagrus,./data/input_nf/test/epinephelus,./data/input_nf/test/f2,./data/input_nf/test/f3,./data/input_nf/test/f6,./data/input_nf/test/gerres,./data/input_nf/test/lutjanus]
+# number of classes
+nc: 6
+
+# class names
+names: [ 'scallop','herring','dead-scallop','flounder','roundfish','skate' ]
+#['acanthopagrus',  'epinephelus',  'f2'  ,'f3',  'f6' , 'gerres' , 'lutjanus']
+#
