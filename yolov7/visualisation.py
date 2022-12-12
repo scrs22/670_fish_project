@@ -78,14 +78,14 @@ def visualise(weights_path,img_path):
                                 prob_thresh=prob_thresh)
             masked = mask_image(image, mask)
             out = model(masked)
-            # for i, det in enumerate(pred):  # detections per image
+            # for i, det in enumerate(out):  # detections per image
                 
-            #     im0, frame = im0s, getattr(dataset, 'frame', 0)
+            #     im0= masked
 
             #     gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
             #     if len(det):
             #         # Rescale boxes from img_size to im0 size
-            #         det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
+            #         det[:, :4] = scale_coords(masked.shape[2:], det[:, :4], im0.shape).round()
 
             #         # Print results
             #         for c in det[:, -1].unique():
@@ -96,9 +96,8 @@ def visualise(weights_path,img_path):
             #         for *xyxy, conf, cls in reversed(det):
             #             xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         
-            pred = out.pandas().xyxy[0]
-            # score = max([iou(target_box, box) * score for *box, score in pred],
-            #             default=0)
+            # pred = out.xyxy[0]
+            pred = max(out)
             # res += mask * score
         return pred
 
