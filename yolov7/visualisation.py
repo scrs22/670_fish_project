@@ -15,7 +15,7 @@ def visualise(weights_path,img_path):
     model = model.half().to(device)
     _ = model.eval()
     image = cv2.imread(img_path)  # 504x378 image
-    print(image.shape)
+    
     # imaget = letterbox(image, 640, stride=64, auto=True)[0]
     # image_t = image.copy()
     # imaget = transforms.ToTensor()(image)
