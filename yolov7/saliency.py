@@ -66,24 +66,24 @@ checkpoint ='runs/train/uncropped/weights/best.pt'
 device = 'cuda:0'
 
 register_all_modules()
-with DefaultScope.overwrite_default_scope("mmdet"):
-    model = init_detector(config, checkpoint, device)
-    label_names = ['scallop','herring','dead-scallop','flounder','roundfish','skate']
-    image = cv2.imread(image_path)
-    scale = 600 / min(image.shape[:2])
-    image = cv2.resize(image,
-                      None,
-                      fx=scale,
-                      fy=scale,
-                      interpolation=cv2.INTER_AREA)
+
+model = init_detector(config, checkpoint, device)
+label_names = ['scallop','herring','dead-scallop','flounder','roundfish','skate']
+image = cv2.imread(image_path)
+scale = 600 / min(image.shape[:2])
+image = cv2.resize(image,
+                  None,
+                  fx=scale,
+                  fy=scale,
+                  interpolation=cv2.INTER_AREA)
 
 
-    out = inference_detector(model, image)
-    res = image.copy()
-    for i, pred in enumerate(out):
-        for *box, score in pred:
-            if score < 0.5:
-                break
-            box = tuple(np.round(box).astype(int).tolist())
-            print(i, label_names[i], box, score)
-            cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
+out = inference_detector(model, image)
+res = image.copy()
+for i, pred in enumerate(out):
+    for *box, score in pred:
+        if score < 0.5:
+            break
+        box = tuple(np.round(box).astype(int).tolist())
+        print(i, label_names[i], box, score)
+        cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
