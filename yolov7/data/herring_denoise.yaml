@@ -1,6 +1,6 @@
 # Fish 2022 dataset 
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: [./data/denoise/train/skate/,./data/denoise/train_nf/flounder/,./data/denoise/train/herring/,./data/denoise/train/dead-scallop/,./data/denoise/train/roundfish/,./data/denoise/train/scallop/] # 118287 images
+train: [./data/denoise/train/skate/,./data/denoise/train/flounder/,./data/denoise/train/herring/,./data/denoise/train/dead-scallop/,./data/denoise/train/roundfish/,./data/denoise/train/scallop/] # 118287 images
 #[./data/denoise/train/acanthopagrus,./data/denoise/train/epinephelus,./data/denoise/train/f2,./data/denoise/train/f3,./data/denoise/train/f6,./data/denoise/train/gerres,./data/denoise/train/lutjanus]
 val: [./data/denoise/val/skate/,./data/denoise/val/flounder/,./data/denoise/val/herring/,./data/denoise/val/dead-scallop/,./data/denoise/val/roundfish/,./data/denoise/val/scallop/] # 5000 images
 #[./data/denoise/val/acanthopagrus,./data/denoise/val/epinephelus,./data/denoise/val/f2,./data/denoise/val/f3,./data/denoise/val/f6,./data/denoise/val/gerres,./data/denoise/val/lutjanus]
