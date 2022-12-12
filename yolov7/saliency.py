@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from mmdet.apis import init_detector, inference_detector
+from mmyolo.utils import register_all_modules
 
 def generate_mask(image_size, grid_size, prob_thresh):
     image_w, image_h = image_size
@@ -71,6 +72,7 @@ image = cv2.resize(image,
                    fx=scale,
                    fy=scale,
                    interpolation=cv2.INTER_AREA)
+register_all_modules()
 out = inference_detector(model, image)
 res = image.copy()
 for i, pred in enumerate(out):
