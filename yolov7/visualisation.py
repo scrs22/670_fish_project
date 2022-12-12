@@ -77,7 +77,7 @@ def visualise(weights_path,img_path):
                                 grid_size=grid_size,
                                 prob_thresh=prob_thresh)
             masked = mask_image(image, mask)
-            out = model(masked)
+            out = model(masked).numpy()
             # for i, det in enumerate(out):  # detections per image
                 
             #     im0= masked
