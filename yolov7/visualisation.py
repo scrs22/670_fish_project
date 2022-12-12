@@ -104,7 +104,7 @@ def visualise(weights_path,img_path):
     # plt.show()
 
 if __name__ == "__main__":
-    image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
+    image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/images/319.png')
     print(image.shape)
 
 
