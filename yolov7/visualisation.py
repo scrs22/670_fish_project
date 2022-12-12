@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
 import sys
+import matplotlib.pyplot as plt
 import torch
 import cv2
 from torchvision import transforms
@@ -15,7 +15,7 @@ def visualise(weights_path,img_path):
     model = model.half().to(device)
     _ = model.eval()
     image = cv2.imread(img_path)  # 504x378 image
-    imaget = letterbox(image, 1280, stride=64, auto=True)[0]
+    imaget = letterbox(image, 640, stride=64, auto=True)[0]
     image_t = image.copy()
     imaget = transforms.ToTensor()(image)
     imaget = torch.tensor(np.array([image.numpy()]))
