@@ -6,6 +6,7 @@ import numpy as np
 
 from mmdet.apis import init_detector, inference_detector
 from mmyolo.utils import register_all_modules
+from mmengine.registry import DefaultScope
 
 def generate_mask(image_size, grid_size, prob_thresh):
     image_w, image_h = image_size
@@ -63,6 +64,9 @@ image_path = "data/input/test/herring/images/319.png"
 config = 'config.py'
 checkpoint ='runs/train/uncropped/weights/best.pt'
 device = 'cuda:0'
+
+register_all_modules()
+
 model = init_detector(config, checkpoint, device)
 label_names = ['scallop','herring','dead-scallop','flounder','roundfish','skate']
 image = cv2.imread(image_path)
@@ -72,7 +76,8 @@ image = cv2.resize(image,
                    fx=scale,
                    fy=scale,
                    interpolation=cv2.INTER_AREA)
-register_all_modules()
+
+
 out = inference_detector(model, image)
 res = image.copy()
 for i, pred in enumerate(out):
