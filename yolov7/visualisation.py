@@ -77,7 +77,7 @@ def visualise(weights_path,img_path):
                                 grid_size=grid_size,
                                 prob_thresh=prob_thresh)
             masked = mask_image(image, mask)
-            out = model(masked).numpy()
+            out = model(masked)
             # for i, det in enumerate(out):  # detections per image
                 
             #     im0= masked
@@ -97,7 +97,7 @@ def visualise(weights_path,img_path):
             #             xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         
             # pred = out.xyxy[0]
-            pred = max(out)
+            pred = out.argmax()
             # res += mask * score
         return pred
 
