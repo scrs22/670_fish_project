@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import sys
 import torch
 import cv2
 from torchvision import transforms
@@ -75,6 +76,7 @@ def visualise(weights_path,img_path):
             masked = mask_image(image, mask)
             out = model(masked)
             print(out)
+            sys.stdout.flush()
             pred = out[target_class_index]
             score = max([iou(target_box, box) * score for *box, score in pred],
                         default=0)
