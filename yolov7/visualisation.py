@@ -19,7 +19,7 @@ def visualise(weights_path,img_path):
     imaget = letterbox(image, 640, stride=64, auto=True)[0]
     image_t = image.copy()
     imaget = transforms.ToTensor()(image)
-    imaget = torch.tensor(np.array([image.numpy()]))
+    imaget = torch.tensor(np.array([image]))
     imaget = image.to(device)
     imaget = image.half()
 
