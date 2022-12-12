@@ -105,7 +105,7 @@ def visualise(weights_path,img_path):
 
 if __name__ == "__main__":
     image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/images/319.png')
-    print(image)
+    print(image[1])
 
 
 
