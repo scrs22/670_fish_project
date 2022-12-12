@@ -80,7 +80,7 @@ image = cv2.resize(image,
 
 out = inference_detector(model, image)
 res = image.copy()
-print(out.numpy())
+print(out.keys())
 for i, pred in enumerate(out.numpy):
     for *box, score in pred:
         if score < 0.5:
