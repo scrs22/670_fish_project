@@ -15,6 +15,7 @@ def visualise(weights_path,img_path):
     model = model.half().to(device)
     _ = model.eval()
     image = cv2.imread(img_path)  # 504x378 image
+    print(image.shape)
     imaget = letterbox(image, 640, stride=64, auto=True)[0]
     image_t = image.copy()
     imaget = transforms.ToTensor()(image)
@@ -91,6 +92,7 @@ def visualise(weights_path,img_path):
                                         grid_size=(16, 16),
                                         n_masks=1000)
     print(saliency_map)
+    return image
     # image_with_bbox = image.copy()
     # cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
     #               (0, 255, 0), 5)
@@ -102,7 +104,8 @@ def visualise(weights_path,img_path):
     # plt.show()
 
 if __name__ == "__main__":
-    visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
+    image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
+    print(image.shape)
 
 
 
