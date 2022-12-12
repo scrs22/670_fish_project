@@ -96,7 +96,11 @@ def visualise(weights_path,img_path):
     plt.imshow(image_with_bbox[:, :, ::-1])
     plt.imshow(saliency_map, cmap='jet', alpha=0.5)
     plt.axis('off')
+    plt.imsave("uncropped")
     plt.show()
+
+if __name__ == "__main__":
+    visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
 
 
 
