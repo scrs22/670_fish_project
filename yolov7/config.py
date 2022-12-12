@@ -16,7 +16,7 @@ train_num_workers = 8  # 推荐使用 train_num_workers = nGPU x 4
 save_epoch_intervals = 10  # 每 interval 轮迭代进行一次保存一次权重
 
 # 根据自己的 GPU 情况，修改 base_lr，修改的比例是 base_lr_default * (your_bs / default_bs)
-base_lr = _base_.base_lr / 4
+base_lr = 0.1
 
 num_classes = 6
 metainfo = dict(  # 根据 class_with_id.txt 类别信息，设置 metainfo
