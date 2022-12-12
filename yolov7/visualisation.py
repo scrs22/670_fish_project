@@ -97,7 +97,7 @@ def visualise(weights_path,img_path):
             #             xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         
             # pred = out.xyxy[0]
-            pred = out.argmax()
+            pred = out.max()
             # res += mask * score
         return pred
 
