@@ -6,6 +6,8 @@ from torchvision import transforms
 import numpy as np
 import math
 from utils.datasets import letterbox
+from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, \
+    scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
 
 def visualise(weights_path,img_path):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -76,9 +78,25 @@ def visualise(weights_path,img_path):
                                 prob_thresh=prob_thresh)
             masked = mask_image(image, mask)
             out = model(masked)
-            print(out)
-            # sys.stdout.flush()
-            pred = out.xyxy[0]
+            # for i, det in enumerate(pred):  # detections per image
+                
+            #     im0, frame = im0s, getattr(dataset, 'frame', 0)
+
+            #     gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
+            #     if len(det):
+            #         # Rescale boxes from img_size to im0 size
+            #         det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
+
+            #         # Print results
+            #         for c in det[:, -1].unique():
+            #             n = (det[:, -1] == c).sum()  # detections per class
+            #             s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+
+            #         # Write results
+            #         for *xyxy, conf, cls in reversed(det):
+            #             xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
+                        
+            pred = out.pandas().xyxy[0]
             # score = max([iou(target_box, box) * score for *box, score in pred],
             #             default=0)
             # res += mask * score
