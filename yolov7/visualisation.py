@@ -91,8 +91,8 @@ def visualise(weights_path,img_path):
                                         prob_thresh=0.5,
                                         grid_size=(16, 16),
                                         n_masks=1000)
-    print(saliency_map)
-    return image
+    return saliency_map
+    
     # image_with_bbox = image.copy()
     # cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
     #               (0, 255, 0), 5)
@@ -105,7 +105,7 @@ def visualise(weights_path,img_path):
 
 if __name__ == "__main__":
     image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
-    print(image.shape)
+    print(image)
 
 
 
