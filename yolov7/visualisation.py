@@ -16,12 +16,12 @@ def visualise(weights_path,img_path):
     _ = model.eval()
     image = cv2.imread(img_path)  # 504x378 image
     print(image.shape)
-    imaget = letterbox(image, 640, stride=64, auto=True)[0]
-    image_t = image.copy()
-    imaget = transforms.ToTensor()(image)
-    imaget = torch.tensor(np.array([image]))
-    imaget = image.to(device)
-    imaget = image.half()
+    # imaget = letterbox(image, 640, stride=64, auto=True)[0]
+    # image_t = image.copy()
+    # imaget = transforms.ToTensor()(image)
+    # imaget = torch.tensor(np.array([image.numpy()]))
+    # imaget = image.to(device)
+    # imaget = image.half()
 
     
 
@@ -104,7 +104,7 @@ def visualise(weights_path,img_path):
     # plt.show()
 
 if __name__ == "__main__":
-    image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/images/319.png')
+    image=visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
     print(image.shape)
 
 
