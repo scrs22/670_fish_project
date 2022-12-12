@@ -76,12 +76,12 @@ def visualise(weights_path,img_path):
             masked = mask_image(image, mask)
             out = model(masked)
             print(out)
-            sys.stdout.flush()
-            pred = out[target_class_index]
-            score = max([iou(target_box, box) * score for *box, score in pred],
-                        default=0)
-            res += mask * score
-        return res
+            # sys.stdout.flush()
+            # pred = out[target_class_index]
+            # score = max([iou(target_box, box) * score for *box, score in pred],
+            #             default=0)
+            # res += mask * score
+        return out
 
     target_box = np.array([289, 72, 491, 388])
     saliency_map = generate_saliency_map(image,
@@ -90,16 +90,16 @@ def visualise(weights_path,img_path):
                                         prob_thresh=0.5,
                                         grid_size=(16, 16),
                                         n_masks=1000)
-
-    image_with_bbox = image.copy()
-    cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
-                  (0, 255, 0), 5)
-    plt.figure(figsize=(7, 7))
-    plt.imshow(image_with_bbox[:, :, ::-1])
-    plt.imshow(saliency_map, cmap='jet', alpha=0.5)
-    plt.axis('off')
-    plt.imsave("uncropped")
-    plt.show()
+    print(saliency_map)
+    # image_with_bbox = image.copy()
+    # cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
+    #               (0, 255, 0), 5)
+    # plt.figure(figsize=(7, 7))
+    # plt.imshow(image_with_bbox[:, :, ::-1])
+    # plt.imshow(saliency_map, cmap='jet', alpha=0.5)
+    # plt.axis('off')
+    # plt.imsave("uncropped")
+    # plt.show()
 
 if __name__ == "__main__":
     visualise( 'runs/train/uncropped/weights/best.pt','data/input/test/herring/319.png')
