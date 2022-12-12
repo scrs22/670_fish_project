@@ -1,6 +1,6 @@
 # Fish 2022 dataset 
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: [./data/input_nf/train/skate/,./data/input_nf/train_nf/flounder/,./data/input_nf/train/herring/,./data/input_nf/train/dead-scallop/,./data/input_nf/train/roundfish/,./data/input_nf/train/scallop/] # 118287 images
+train: [./data/input_nf/train/skate/,./data/input_nf/train/flounder/,./data/input_nf/train/herring/,./data/input_nf/train/dead-scallop/,./data/input_nf/train/roundfish/,./data/input_nf/train/scallop/] # 118287 images
 #[./data/input_nf/train/acanthopagrus,./data/input_nf/train/epinephelus,./data/input_nf/train/f2,./data/input_nf/train/f3,./data/input_nf/train/f6,./data/input_nf/train/gerres,./data/input_nf/train/lutjanus]
 val: [./data/input_nf/val/skate/,./data/input_nf/val/flounder/,./data/input_nf/val/herring/,./data/input_nf/val/dead-scallop/,./data/input_nf/val/roundfish/,./data/input_nf/val/scallop/] # 5000 images
 #[./data/input_nf/val/acanthopagrus,./data/input_nf/val/epinephelus,./data/input_nf/val/f2,./data/input_nf/val/f3,./data/input_nf/val/f6,./data/input_nf/val/gerres,./data/input_nf/val/lutjanus]
