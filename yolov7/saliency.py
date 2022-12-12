@@ -107,6 +107,7 @@ saliency_map = generate_saliency_map(image,
                                      n_masks=1000)
 
 image_with_bbox = image.copy()
+saliency_map=saliency_map.astype(np.float)
 cv2.rectangle(image_with_bbox, tuple(target_box[:2]), tuple(target_box[2:]),
               (0, 255, 0), 5)
 plt.figure(figsize=(7, 7))
