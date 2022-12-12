@@ -78,7 +78,7 @@ def visualise(weights_path,img_path):
             out = model(masked)
             print(out)
             # sys.stdout.flush()
-            pred = out[1]
+            pred = out.xyxy[0]
             # score = max([iou(target_box, box) * score for *box, score in pred],
             #             default=0)
             # res += mask * score
