@@ -2,7 +2,7 @@ import math
 
 import cv2
 import matplotlib
-matplotlib.use('GTKAgg')
+matplotlib.use('MacOSX')
 import matplotlib.pyplot as plt
 import numpy as np
 
