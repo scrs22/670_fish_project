@@ -1,6 +1,8 @@
 import math
 
 import cv2
+import matplotlib
+matplotlib.use('GTKAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -113,5 +115,5 @@ plt.imshow(image_with_bbox[:, :, ::-1])
 plt.imshow(saliency_map, cmap='jet', alpha=0.5)
 plt.axis('off')
 print(saliency_map)
-plt.imsave(saliency_map,'saliency.png',cmap='jet', alpha=0.5)
+plt.imsave(saliency_map,'saliency.png',cmap='jet')
 plt.show()
