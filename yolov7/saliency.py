@@ -85,19 +85,20 @@ image = cv2.resize(image,
                   interpolation=cv2.INTER_AREA)
 
 
-# out = inference_detector(model, image)
-# res = image.copy()
-# preds=out.pred_instances
-# bboxes,labels,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
-# for i, bbox in enumerate(bboxes):
-#     if scores[i] < 0.1:
-#         break
-#     box = tuple(np.round(bbox).astype(int).tolist())
-#     print(i, labels[i], box, scores[i])
-#     cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
-# # plt.figure(figsize=(7, 7))
-# plt.imshow(res[:, :, ::-1])
-# plt.show()
+out = inference_detector(model, image)
+res = image.copy()
+preds=out.pred_instances
+bboxes,labels,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
+for i, bbox in enumerate(bboxes):
+    if scores[i] < 0.25:
+        break
+    box = tuple(np.round(bbox).astype(int).tolist())
+    print(i, labels[i], box, scores[i])
+    cv2.rectangle(res, box[:2], box[2:], (0, 255, 0), 5)
+# plt.figure(figsize=(7, 7))
+plt.imshow(res[:, :, ::-1])
+plt.savefig('box_plots.png')
+plt.show()
 
 target_box = np.array([784, 432, 800, 478])
 saliency_map = generate_saliency_map(image,
