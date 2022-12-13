@@ -99,7 +99,7 @@ for i, bbox in enumerate(bboxes):
 # plt.imshow(res[:, :, ::-1])
 # plt.show()
 
-target_box = np.array([225, 313, 472, 806])
+target_box = np.array([784, 432, 800, 478])
 saliency_map = generate_saliency_map(image,
                                      target_box=target_box,
                                      prob_thresh=0.5,
