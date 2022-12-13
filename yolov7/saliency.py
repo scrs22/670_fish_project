@@ -38,7 +38,6 @@ def iou(box1, box2):
     return intersection / (area1 + area2 - intersection)
 
 def generate_saliency_map(image,
-                          target_class_index,
                           target_box,
                           prob_thresh=0.5,
                           grid_size=(16, 16),
@@ -100,7 +99,6 @@ for i, bbox in enumerate(bboxes):
 
 target_box = np.array([225, 313, 472, 806])
 saliency_map = generate_saliency_map(image,
-                                     target_class_index=3,
                                      target_box=target_box,
                                      prob_thresh=0.5,
                                      grid_size=(16, 16),
@@ -115,5 +113,5 @@ plt.imshow(image_with_bbox[:, :, ::-1])
 plt.imshow(saliency_map, cmap='jet', alpha=0.5)
 plt.axis('off')
 print(saliency_map)
-plt.imsave(saliency_map,'saliency.png')
+plt.imsave(saliency_map,'saliency.png',cmap='jet', alpha=0.5)
 plt.show()
