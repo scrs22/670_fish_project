@@ -67,7 +67,7 @@ def generate_saliency_map(image,
     return res
 
 
-image_path = "data/input/test/herring/images/319.png"
+image_path = "data/input/train/herring/images/62.png"
 config = 'config.py'
 checkpoint ='runs/train/uncropped/weights/best.pt'
 device = 'cuda:0'
