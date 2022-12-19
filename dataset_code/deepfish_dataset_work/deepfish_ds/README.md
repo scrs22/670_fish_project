@@ -1,0 +1,2 @@
+# Original Fish Dataset
+This is the location to place the deepfish dataset files. As they are much too large to upload to Github, simply download them separately from AWS and then place them all in this directory. Finally, delete this README file locally and then run the dataset creation scripts. (starting from 1)
