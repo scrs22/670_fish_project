@@ -10,7 +10,7 @@ for fish in dic_fish:
         d_type=dir_i
         fish_type=fish
         fish_idx=dic_fish[fish]
-        direc=f'/home/ubuntu/670_fish_project/yolov7/data/input_nf/{d_type}/{fish_type}/labels'
+        direc=f'/home/ubuntu/670_fish_project/yolov7/data/denoise/{d_type}/{fish_type}/labels'
 
         os.chdir(direc)
         for file_path in glob.glob("*.txt"):

@@ -35,7 +35,7 @@ model = dict(
         head_module=dict(num_classes=num_classes),
 
         # loss_cls 会根据 num_classes 动态调整，但是 num_classes = 1 的时候，loss_cls 恒为 0
-        loss_cls=dict(loss_weight=0.5 * (num_classes / 80 * 3 / _base_.num_det_layers))
+        loss_cls=dict(loss_weight=0.5 * (num_classes / 6 * 3 / _base_.num_det_layers))
     )
 )
 
@@ -68,7 +68,7 @@ test_dataloader = val_dataloader
 val_evaluator = dict(ann_file=data_root + 'annotations/test.json')
 test_evaluator = val_evaluator
 
-optim_wrapper = dict(optimizer=dict(lr=base_lr))
+optim_wrapper = _base_.optim_wrapper
 
 default_hooks = dict(
     # 设置间隔多少个 epoch 保存模型，以及保存模型最多几个，`save_best` 是另外保存最佳模型（推荐）

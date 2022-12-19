@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use('MacOSX')
 import matplotlib.pyplot as plt
 import numpy as np
+import tqdm
 
 from mmdet.apis import init_detector, inference_detector
 from mmyolo.utils import register_all_modules
@@ -58,7 +59,7 @@ def generate_saliency_map(image,
         bboxes,scores=preds.bboxes.cpu().data.numpy(),preds.scores.cpu().data.numpy()
         temp=[]
         for i, bbox in enumerate(bboxes):
-            if scores[i] < 0.26356:
+            if scores[i] < 0.2595:
                 break
             box = tuple(np.round(bbox).astype(int).tolist())
             temp.append(iou(target_box, box) * scores[i])
@@ -90,7 +91,7 @@ res = image.copy()
 preds=out.pred_instances
 bboxes,labels,scores=preds.bboxes.cpu().data.numpy(),preds.labels.cpu().data.numpy(),preds.scores.cpu().data.numpy()
 for i, bbox in enumerate(bboxes):
-    if scores[i] < 0.25:
+    if scores[i] < 0:
         break
     box = tuple(np.round(bbox).astype(int).tolist())
     print(i, labels[i], box, scores[i])
